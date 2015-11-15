@@ -1,25 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WorkshopDiscussionGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Understanding the In-Office Discussion" placeholder="Understanding the In-Office Discussion" clearsOnBeginEditing="YES" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="GM9-qI-eCh">
+                                <rect key="frame" x="16" y="28" width="710" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="710" id="BiG-oA-pGy"/>
+                                </constraints>
+                                <color key="textColor" red="0.058823529409999999" green="0.46666666670000001" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="changeTextMainTitle:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="DrJ-76-lDd"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZHd-Mh-RT9"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Workshop Discussion Guide" placeholder="Workshop Discussion Guide" clearsOnBeginEditing="YES" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="gGf-nO-lkl">
+                                <rect key="frame" x="16" y="79" width="710" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="changeTextMainSubTitle:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="8pW-aj-Nio"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Nsg-yB-yqU"/>
+                                </connections>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.058823529411764705" green="0.46666666666666667" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="GM9-qI-eCh" firstAttribute="trailing" secondItem="gGf-nO-lkl" secondAttribute="trailing" id="8tW-eX-wzw"/>
+                            <constraint firstItem="gGf-nO-lkl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="59" id="C5b-NZ-XBS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GM9-qI-eCh" secondAttribute="bottom" constant="688" id="D8B-Wc-1Su"/>
+                            <constraint firstItem="GM9-qI-eCh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="JJG-qw-ST7"/>
+                            <constraint firstItem="GM9-qI-eCh" firstAttribute="leading" secondItem="gGf-nO-lkl" secondAttribute="leading" id="b6Z-0Z-0Gx"/>
+                            <constraint firstItem="gGf-nO-lkl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="m0n-UE-9D5"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gGf-nO-lkl" secondAttribute="bottom" constant="659" id="q6z-BH-eHx"/>
+                        </constraints>
                     </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="textMainSubTitle" destination="gGf-nO-lkl" id="0Qe-1s-YIv"/>
+                        <outlet property="textMainTitle" destination="GM9-qI-eCh" id="p1f-Id-4eQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="394" y="270"/>
         </scene>
     </scenes>
 </document>
