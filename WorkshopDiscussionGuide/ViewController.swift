@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textMainSubTitle: UITextField!
     
     // On end of editing of Main Title
-    @IBAction func changeTextMainTitle(sender: AnyObject) {
+    @IBAction func changeTextMainTitle(sender: UITextField) {
         self.textMainTitle.resignFirstResponder()
     }
     

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>59655D4D-8850-485B-8D3A-8417229A3224</string>
+	<key>IDESourceControlProjectName</key>
+	<string>WorkshopDiscussionGuide</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5BAC95A1567D226B200945074B44E68B571B3BC4</key>
+		<string>https://github.com/chasewoodford/WorkshopDiscussionGuide.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>WorkshopDiscussionGuide.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5BAC95A1567D226B200945074B44E68B571B3BC4</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/chasewoodford/WorkshopDiscussionGuide.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5BAC95A1567D226B200945074B44E68B571B3BC4</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5BAC95A1567D226B200945074B44E68B571B3BC4</string>
+			<key>IDESourceControlWCCName</key>
+			<string>WorkshopDiscussionGuide</string>
+		</dict>
+	</array>
+</dict>
+</plist>

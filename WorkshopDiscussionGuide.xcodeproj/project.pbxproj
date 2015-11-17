@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD26B2141BFAA46500C9B23E /* OptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26B2131BFAA46500C9B23E /* OptionsTableViewController.swift */; };
+		FD26B2161BFAA4B900C9B23E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26B2151BFAA4B900C9B23E /* AboutViewController.swift */; };
+		FD26B2181BFAA4DF00C9B23E /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26B2171BFAA4DF00C9B23E /* HelpViewController.swift */; };
+		FD26B21A1BFAA50E00C9B23E /* ReorderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26B2191BFAA50E00C9B23E /* ReorderTableViewController.swift */; };
 		FDE5A9681BF81B63001A39B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE5A9671BF81B63001A39B8 /* AppDelegate.swift */; };
 		FDE5A96A1BF81B63001A39B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE5A9691BF81B63001A39B8 /* ViewController.swift */; };
 		FDE5A96D1BF81B63001A39B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDE5A96B1BF81B63001A39B8 /* Main.storyboard */; };
@@ -26,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD26B2131BFAA46500C9B23E /* OptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsTableViewController.swift; path = ../OptionsTableViewController.swift; sourceTree = "<group>"; };
+		FD26B2151BFAA4B900C9B23E /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		FD26B2171BFAA4DF00C9B23E /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		FD26B2191BFAA50E00C9B23E /* ReorderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReorderTableViewController.swift; sourceTree = "<group>"; };
 		FDE5A9621BF81B63001A39B8 /* WorkshopDiscussionGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkshopDiscussionGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE5A9661BF81B63001A39B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDE5A9671BF81B63001A39B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,12 +85,16 @@
 		FDE5A9641BF81B63001A39B8 /* WorkshopDiscussionGuide */ = {
 			isa = PBXGroup;
 			children = (
+				FD26B2131BFAA46500C9B23E /* OptionsTableViewController.swift */,
 				FDE5A9671BF81B63001A39B8 /* AppDelegate.swift */,
 				FDE5A9691BF81B63001A39B8 /* ViewController.swift */,
 				FDE5A96B1BF81B63001A39B8 /* Main.storyboard */,
 				FDE5A96E1BF81B63001A39B8 /* Images.xcassets */,
 				FDE5A9701BF81B63001A39B8 /* LaunchScreen.xib */,
 				FDE5A9651BF81B63001A39B8 /* Supporting Files */,
+				FD26B2151BFAA4B900C9B23E /* AboutViewController.swift */,
+				FD26B2171BFAA4DF00C9B23E /* HelpViewController.swift */,
+				FD26B2191BFAA50E00C9B23E /* ReorderTableViewController.swift */,
 			);
 			path = WorkshopDiscussionGuide;
 			sourceTree = "<group>";
@@ -214,6 +226,10 @@
 			files = (
 				FDE5A96A1BF81B63001A39B8 /* ViewController.swift in Sources */,
 				FDE5A9681BF81B63001A39B8 /* AppDelegate.swift in Sources */,
+				FD26B21A1BFAA50E00C9B23E /* ReorderTableViewController.swift in Sources */,
+				FD26B2161BFAA4B900C9B23E /* AboutViewController.swift in Sources */,
+				FD26B2141BFAA46500C9B23E /* OptionsTableViewController.swift in Sources */,
+				FD26B2181BFAA4DF00C9B23E /* HelpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +423,7 @@
 				FDE5A9831BF81B63001A39B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FDE5A9841BF81B63001A39B8 /* Build configuration list for PBXNativeTarget "WorkshopDiscussionGuideTests" */ = {
 			isa = XCConfigurationList;
@@ -415,6 +432,7 @@
 				FDE5A9861BF81B63001A39B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
