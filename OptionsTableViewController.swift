@@ -10,7 +10,7 @@ import UIKit
 
 class OptionsTableViewController: UITableViewController {
 
-    var options = ["Add New","Re-order","Share","About","Help","Cancel"]
+    let options = [("Add New"),("Re-order"),("Share"),("About"),("Help")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,31 +24,52 @@ class OptionsTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return options.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("optionCell", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
-        var menuOption = options[indexPath.row]
-        cell.textLabel?.text = menuOption
-
+        
+        // Set cell label
+        cell.textLabel?.text = self.options[indexPath.row]
+        
+        // Customizations for each cell
+        switch indexPath.row {
+        case (0):
+            // cell.imageView?.image =
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        case (1):
+            // cell.imageView?.image =
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        case (2):
+            // cell.imageView?.image =
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        case (3):
+            // cell.imageView?.image =
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        case (4):
+            // cell.imageView?.image =
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        case (5):
+            // cell.imageView?.image =
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        default:
+            cell.accessoryType = UITableViewCellAccessoryType.None
+        }
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
 
     /*
