@@ -1,19 +1,18 @@
 //
-//  HelpViewController.swift
+//  AddNewViewController.swift
 //  WorkshopDiscussionGuide
 //
-//  Created by Chase Woodford on 11/16/15.
-//  Copyright (c) 2015 Chase Woodford. All rights reserved.
+//  Created by Chase Woodford on 11/28/15.
+//  Copyright © 2015 Chase Woodford. All rights reserved.
 //
 
 import UIKit
 
-class HelpViewController: UIViewController {
+class AddNewViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Help"
 
         // Do any additional setup after loading the view.
     }

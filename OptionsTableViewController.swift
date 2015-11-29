@@ -10,7 +10,7 @@ import UIKit
 
 class OptionsTableViewController: UITableViewController {
 
-    let options = [("Add New"),("Re-order"),("Share"),("About"),("Help")]
+    let options = [("Share"),("About"),("Help")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,7 @@ class OptionsTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,20 +47,11 @@ class OptionsTableViewController: UITableViewController {
         switch indexPath.row {
         case (0):
             // cell.imageView?.image =
-            cell.accessoryType = UITableViewCellAccessoryType.None
+            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         case (1):
             // cell.imageView?.image =
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         case (2):
-            // cell.imageView?.image =
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        case (3):
-            // cell.imageView?.image =
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        case (4):
-            // cell.imageView?.image =
-            cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        case (5):
             // cell.imageView?.image =
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         default:
