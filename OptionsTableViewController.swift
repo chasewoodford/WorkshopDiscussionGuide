@@ -45,13 +45,13 @@ class OptionsTableViewController: UITableViewController {
         
         // Customizations for each cell
         switch indexPath.row {
-        case (0):
+        case 0:
             // cell.imageView?.image =
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        case (1):
+        case 1:
             // cell.imageView?.image =
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
-        case (2):
+        case 2:
             // cell.imageView?.image =
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         default:

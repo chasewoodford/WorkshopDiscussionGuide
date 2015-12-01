@@ -8,7 +8,7 @@
 
 import UIKit
 
-var objects:[String] = [String]()
+var noteObject:[Int:String]?
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
@@ -42,12 +42,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-        if objects.count > 0 {
-            // Show the objects
-            // Show the Add New button last
-        } else {
-            // Show the Add New Button
-        }
+//        if (noteObject == nil) {
+//            // Show the Add New Button
+//        } else {
+//            for (interaction, note) in noteObject! {
+//                // Show the objects
+//            }
+//            // Show the Add New button last
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,16 +57,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-//    func save() {
-//        NSUserDefaults.standardUserDefaults().setObject(objects, forKey: kNotes)
+    func save() {
+//        NSUserDefaults.standardUserDefaults().setObject(<#T##value: AnyObject?##AnyObject?#>, forKey: <#T##String#>)
 //        NSUserDefaults.standardUserDefaults().synchronize()
-//    }
+    }
     
-//    func load() {
-//        if let loadedData = NSUserDefaults.standardUserDefaults().arrayForKey(kNotes) as? [String] {
-//            objects = loadedData
+    func load() {
+//        if let loadedData = NSUserDefaults.standardUserDefaults().arrayForKey(<#T##defaultName: String##String#>) as? [String] {
+//            noteObject = loadedData
 //        }
-//    }
+    }
 
 }
 

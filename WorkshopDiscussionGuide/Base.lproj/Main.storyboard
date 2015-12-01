@@ -18,19 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Understanding the In-Office Discussion" placeholder="Understanding the In-Office Discussion" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GM9-qI-eCh">
-                                <rect key="frame" x="20" y="70" width="744" height="48"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="744" id="WdL-Nj-Gc5"/>
-                                </constraints>
-                                <color key="textColor" red="0.058823529409999999" green="0.46666666670000001" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="changeTextMainTitle:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="DrJ-76-lDd"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZHd-Mh-RT9"/>
-                                </connections>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Workshop Discussion Guide" placeholder="Workshop Discussion Guide" minimumFontSize="14" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gGf-nO-lkl">
                                 <rect key="frame" x="20" y="119" width="425" height="36"/>
                                 <constraints>
@@ -68,6 +55,19 @@
                                     <segue destination="6t6-ew-Cxd" kind="show" id="vWb-E7-S6G"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Understanding the In-Office Discussion" placeholder="Understanding the In-Office Discussion" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GM9-qI-eCh">
+                                <rect key="frame" x="20" y="70" width="744" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="744" id="WdL-Nj-Gc5"/>
+                                </constraints>
+                                <color key="textColor" red="0.058823529409999999" green="0.46666666670000001" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="changeTextMainTitle:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="DrJ-76-lDd"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ZHd-Mh-RT9"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.058823529411764705" green="0.46666666666666667" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
