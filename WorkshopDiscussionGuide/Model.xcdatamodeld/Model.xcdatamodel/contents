@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
+    <entity name="Note" syncable="YES">
+        <attribute name="conversationDynamics" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdDatetime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="deleted" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="implications" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="interactionID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="keyTakeaways" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="orderNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="updatedDatetime" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Note" positionX="-306" positionY="-171" width="171" height="163"/>
+    </elements>
+</model>
