@@ -88,10 +88,10 @@ class NoteManager {
         fetchRequest.entity = entity
         
         // Set the batch size to a suitable number.
-        fetchRequest.fetchBatchSize = 20
+        fetchRequest.fetchBatchSize = 10
         
         // Edit the sort key as appropriate.
-        let sortDescriptor = NSSortDescriptor(key: "timeStamp", ascending: false)
+        let sortDescriptor = NSSortDescriptor(key: "createdDatetime", ascending: false)
         
         fetchRequest.sortDescriptors = [sortDescriptor]
         

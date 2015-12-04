@@ -9,7 +9,10 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsControllerDelegate {
+    
+    var detailViewController: DetailsViewController? = nil
+    var resultsController = NoteManager.sharedInstance.fetchedResultsController
     
     @IBOutlet weak var textMainTitle: UITextField!
     @IBOutlet weak var textMainSubTitle: UITextField!

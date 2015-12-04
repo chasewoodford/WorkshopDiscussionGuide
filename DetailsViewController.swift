@@ -20,18 +20,31 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     
     @IBAction func saveButtonPressed(sender: AnyObject) {
-        print("Button pressed!")
+        if let _ = self.detailItem {
+            self.updateNote()
+        } else {
+            self.saveNote()
+        }
+    }
+    
+    @IBAction func cancelButtonPressed(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: {});
     }
     
     var detailItem: AnyObject? {
         didSet {
-            // Update the view
+            self.configureView()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.configureView()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func configureView() {
@@ -82,8 +95,27 @@ class DetailsViewController: UIViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func saveNote(){
+        let interactionID:Int? = Int(self.interactionID.text!)
+        let conversationDynamics = self.conversationDynamicsTextView.text
+        let keyTakeaways = self.keyTakeawaysTextView.text
+        let implications = self.implicationsTextView.text
+        
+        NoteManager.sharedInstance.insertNewObject(interactionID!, conversationDynamics: conversationDynamics, keyTakeaways: keyTakeaways, implications: implications)
+    }
+    
+    func updateNote(){
+        if let detail = self.detailItem {
+            detail.setValue(self.interactionID!.text, forKey: "interactionID")
+            detail.setValue(self.conversationDynamicsTextView!.text, forKey: "conversationDynamics")
+            detail.setValue(self.keyTakeawaysTextView, forKey: "keyTakeaways")
+            detail.setValue(self.implicationsTextView, forKey: "implications")
+            
+            do {
+                try NoteManager.sharedInstance.managedObjectContext.save()
+            } catch {
+                abort()
+            }
+        }
     }
 }
