@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class DetailsViewController: UIViewController {
+class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var interactionID: UITextField!
     @IBOutlet weak var createdDatetimeLabel: UILabel!
@@ -100,7 +100,7 @@ class DetailsViewController: UIViewController {
         let conversationDynamics = self.conversationDynamicsTextView.text
         let keyTakeaways = self.keyTakeawaysTextView.text
         let implications = self.implicationsTextView.text
-        
+
         NoteManager.sharedInstance.insertNewObject(interactionID!, conversationDynamics: conversationDynamics, keyTakeaways: keyTakeaways, implications: implications)
     }
     
@@ -114,8 +114,21 @@ class DetailsViewController: UIViewController {
             do {
                 try NoteManager.sharedInstance.managedObjectContext.save()
             } catch {
+                // TODO: Add error handling
                 abort()
             }
         }
+    }
+    
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        self.saveButton.tintColor = UIColor(red: 15/255, green: 119/255, blue: 179/255, alpha: 1)
+        self.saveButton.enabled = true
+        return true
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        self.saveButton.tintColor = UIColor(red: 15/255, green: 119/255, blue: 179/255, alpha: 1)
+        self.saveButton.enabled = true
+        return true
     }
 }

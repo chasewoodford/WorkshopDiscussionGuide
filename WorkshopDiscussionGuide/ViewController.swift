@@ -35,8 +35,26 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        // TODO: Loop through each note object in memory
+        let noteObjectBtn = UIButton(type: UIButtonType.System) as UIButton
+        // TODO: Make positioning relative
+        noteObjectBtn.frame = CGRectMake(195, 195, 152, 152)
+        noteObjectBtn.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
+        // TODO: Make title dynamically set
+        noteObjectBtn.setTitle("Interaction\n123456", forState: UIControlState.Normal)
+        noteObjectBtn.titleLabel!.lineBreakMode = .ByWordWrapping
+        noteObjectBtn.titleLabel!.textAlignment = .Center
+        noteObjectBtn.addTarget(self, action: "noteObjectButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        self.view.addSubview(noteObjectBtn)
+    }
+    
+    func noteObjectButtonAction(sender: UIButton!) {
+        // TODO: Segue to Details view
+        print("Button tapped")
     }
 
     override func didReceiveMemoryWarning() {
