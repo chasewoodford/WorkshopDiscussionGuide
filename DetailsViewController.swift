@@ -56,7 +56,7 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             
             if let createdDatetime = self.createdDatetimeLabel {
                 let formatted = NoteManager.sharedInstance.formatDateToString(detail.valueForKey("createdDatetime") as! NSDate)
-                createdDatetime.text = "Created on " + formatted
+                createdDatetime.text = "Note created on " + formatted
             }
             
             if let conversationDynamics = self.conversationDynamicsTextView {
@@ -102,6 +102,8 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         let implications = self.implicationsTextView.text
 
         NoteManager.sharedInstance.insertNewObject(interactionID!, conversationDynamics: conversationDynamics, keyTakeaways: keyTakeaways, implications: implications)
+        // Dimiss view on save
+        self.dismissViewControllerAnimated(true, completion: {});
     }
     
     func updateNote(){
@@ -113,6 +115,8 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             
             do {
                 try NoteManager.sharedInstance.managedObjectContext.save()
+                // Dismiss view on update
+                self.dismissViewControllerAnimated(true, completion: {});
             } catch {
                 // TODO: Add error handling
                 abort()
@@ -120,14 +124,21 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         }
     }
     
+    // Clear keyboard on touch outside UI element
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view .endEditing(true)
+    }
+    
+    // Enable save button after editing Interaction ID
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        self.saveButton.tintColor = UIColor(red: 15/255, green: 119/255, blue: 179/255, alpha: 1)
+        self.saveButton.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         self.saveButton.enabled = true
         return true
     }
     
+    // Enable save button after editing text view input
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        self.saveButton.tintColor = UIColor(red: 15/255, green: 119/255, blue: 179/255, alpha: 1)
+        self.saveButton.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         self.saveButton.enabled = true
         return true
     }
