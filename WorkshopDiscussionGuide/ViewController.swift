@@ -38,6 +38,10 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
         
         super.viewDidLoad()
         
+        // Show disclaimer immediately after launching app
+        let myAlert = UIAlertView(title: "Disclaimer", message: "Verilogue, Inc. © 2016\n\rThis app is in beta. Verilogue makes no guarantees on the performance of this app. Use at your own risk.", delegate: nil, cancelButtonTitle: "Agree")
+        myAlert .show()
+        
         // TODO: Loop through each note object in memory
         let noteObjectBtn = UIButton(type: UIButtonType.System) as UIButton
         // TODO: Make positioning relative
