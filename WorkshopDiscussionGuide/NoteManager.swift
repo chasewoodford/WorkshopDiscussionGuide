@@ -10,9 +10,10 @@ import Foundation
 import CoreData
 
 class NoteManager {
+    
     static let sharedInstance = NoteManager()
     
-    // MARK: - Core Data stack
+    // MARK: Core Data stack
     
     lazy var applicationDocumentsDirectory: NSURL = {
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
@@ -51,7 +52,7 @@ class NoteManager {
         return managedObjectContext
     }()
     
-    // MARK: - Core Data Saving support
+    // MARK: Core Data Saving support
     
     func saveContext () {
         if managedObjectContext.hasChanges {
@@ -67,7 +68,7 @@ class NoteManager {
         }
     }
     
-    // MARK: - Fetched results controller
+    // MARK: Fetched results controller
     
     var fetchedResultsController: NSFetchedResultsController {
         
@@ -132,7 +133,7 @@ class NoteManager {
         }
     }
     
-    // MARK: - Helper Functions
+    // MARK: Helper Functions
     
     func formatDateToString(date:NSDate) -> String {
         let formatter = NSDateFormatter()
@@ -140,4 +141,5 @@ class NoteManager {
         let formattedDate = formatter.stringFromDate(date)
         return formattedDate
     }
+    
 }
