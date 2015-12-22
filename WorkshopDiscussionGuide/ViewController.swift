@@ -11,6 +11,8 @@ import CoreData
 
 class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsControllerDelegate {
     
+    let year = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)!.component(NSCalendarUnit.Year, fromDate: NSDate())
+    
     var detailViewController: DetailsViewController? = nil
     var resultsController = NoteManager.sharedInstance.fetchedResultsController
     
@@ -39,7 +41,7 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
         super.viewDidLoad()
         
         // Show disclaimer immediately after launching app
-        let myAlert = UIAlertView(title: "Disclaimer", message: "Verilogue, Inc. © 2016\n\rThis app is in beta. Verilogue makes no guarantees on the performance of this app. Use at your own risk.", delegate: nil, cancelButtonTitle: "Agree")
+        let myAlert = UIAlertView(title: "Disclaimer", message: "Verilogue, Inc. © \(year)\n\rThis app is in beta. Verilogue makes no guarantees on the performance of this app. Use at your own risk.", delegate: nil, cancelButtonTitle: "Agree")
         myAlert .show()
         
         // TODO: Loop through each note object in memory

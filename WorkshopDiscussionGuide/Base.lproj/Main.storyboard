@@ -319,21 +319,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F3w-cJ-daT">
+                            <navigationBar contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F3w-cJ-daT">
                                 <rect key="frame" x="0.0" y="0.0" width="540" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="K4F-UM-XTC"/>
                                 </items>
                             </navigationBar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lox-Ug-566">
-                                <rect key="frame" x="20" y="100" width="500" height="128"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lox-Ug-566">
+                                <rect key="frame" x="20" y="52" width="500" height="548"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Lox-Ug-566" firstAttribute="trailing" secondItem="kPg-09-VrY" secondAttribute="trailingMargin" id="92P-Xt-9Sw"/>
+                            <constraint firstAttribute="bottom" secondItem="Lox-Ug-566" secondAttribute="bottom" constant="20" symbolic="YES" id="Ge6-oJ-Dme"/>
+                            <constraint firstItem="Lox-Ug-566" firstAttribute="leading" secondItem="kPg-09-VrY" secondAttribute="leadingMargin" id="XTu-rs-sr2"/>
+                            <constraint firstItem="Lox-Ug-566" firstAttribute="top" secondItem="bWR-e9-N5u" secondAttribute="bottom" constant="8" symbolic="YES" id="ZRh-Wi-8pA"/>
+                            <constraint firstItem="Lox-Ug-566" firstAttribute="centerX" secondItem="F3w-cJ-daT" secondAttribute="centerX" id="lpv-x9-JGr"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="optionItemDescription" destination="Lox-Ug-566" id="bGX-8a-sXO"/>

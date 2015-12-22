@@ -18,7 +18,7 @@ class OptionsTableDetailViewController: UIViewController {
         super.viewDidLoad()
         optionItemDescription.text = optionItem!.description
         self.title = optionItem!.name
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "dismiss")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismiss")
     }
 
     override func didReceiveMemoryWarning() {

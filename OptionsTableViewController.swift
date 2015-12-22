@@ -9,25 +9,34 @@
 import UIKit
 
 class OptionsTableViewController: UITableViewController {
+    
+    let versionNumber = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
+    let year = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)!.component(NSCalendarUnit.Year, fromDate: NSDate())
 
     var options = [Option]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var optionItem = Option(name: "Share", description: "This is the share option details page")
+        var optionItem = Option(
+            name: "Share",
+            description: "This should be replaced with options for saving and sharing notes. This may need a scene of its own."
+        )
         options.append(optionItem)
         
-        optionItem = Option(name: "About", description: "This is the about option details page")
+        optionItem = Option(
+            name: "About",
+            description: "Verilogue's Workshop Discussion Guide app is a digital note-taking companion for live, on-site listening workshops.\n\rFor convenience, and to reduce the amount of printed materials needed to create an engaging dialogue experience for brand and agency teams, Verilogue makes available its digital Workshop Discussion Guide free of charge.\n\rAs with a printed Workshop Discussion Guide worksheet, this app allows users to record notes for each interaction explored during a Listening Workshop. Unlike a printed document, however, this app allows users to easily save and share digital copies of notes. Additionally, user notes are not limited in size by the available physical space of a piece of paper.\n\rVerilogue, Inc. © \(year)\nwww.verilogue.com\nVersion: \(versionNumber)"
+        )
         options.append(optionItem)
         
-        optionItem = Option(name: "Help", description: "This is the help option details page")
+        optionItem = Option(
+            name: "Help",
+            description: "This should be like a bulleted list of FAQs."
+        )
         options.append(optionItem)
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Cancel, target: self, action: "dismiss")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismiss")
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,11 +82,11 @@ class OptionsTableViewController: UITableViewController {
     // MARK: Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let secondScene = segue.destinationViewController as! OptionsTableDetailViewController
+        let optionDetailScene = segue.destinationViewController as! OptionsTableDetailViewController
         
         if let indexPath = self.tableView.indexPathForSelectedRow {
             let selectedOption = options[indexPath.row]
-            secondScene.optionItem = selectedOption
+            optionDetailScene.optionItem = selectedOption
         }
     }
     
