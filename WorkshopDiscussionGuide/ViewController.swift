@@ -9,9 +9,12 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsControllerDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let year = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)!.component(NSCalendarUnit.Year, fromDate: NSDate())
+    // TODO: Make the notes load from core data
+    let notes = ["Interaction\n111111", "Interaction\n222222", "Interaction\n333333", "Interaction\n444444", "Interaction\n555555", "Interaction\n666666"]
+    let noteBackgroundImage = UIImage(named: "noteBackground")
     
     var detailViewController: DetailsViewController? = nil
     var resultsController = NoteManager.sharedInstance.fetchedResultsController
@@ -19,6 +22,17 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
     @IBOutlet weak var textMainTitle: UITextField!
     @IBOutlet weak var textMainSubTitle: UITextField!
     @IBOutlet weak var addNewButton: UIButton!
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        // Show disclaimer immediately after launching app
+        let myAlert = UIAlertView(title: "Disclaimer", message: "Verilogue, Inc. © \(year)\n\rThis app is in beta. Verilogue makes no guarantees on the performance of this app. Use at your own risk.", delegate: nil, cancelButtonTitle: "Agree")
+        myAlert .show()
+        
+    }
     
     // On end of editing of Main Title
     @IBAction func changeTextMainTitle(sender: UITextField) {
@@ -35,37 +49,37 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
         textField.resignFirstResponder()
         return false
     }
-    
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        // Show disclaimer immediately after launching app
-        let myAlert = UIAlertView(title: "Disclaimer", message: "Verilogue, Inc. © \(year)\n\rThis app is in beta. Verilogue makes no guarantees on the performance of this app. Use at your own risk.", delegate: nil, cancelButtonTitle: "Agree")
-        myAlert .show()
-        
-        // TODO: Loop through each note object in memory
-        let noteObjectBtn = UIButton(type: UIButtonType.System) as UIButton
-        // TODO: Make positioning relative
-        noteObjectBtn.frame = CGRectMake(195, 195, 152, 152)
-        noteObjectBtn.backgroundColor = UIColor(red: 245/255, green: 245/255, blue: 245/255, alpha: 1)
-        // TODO: Make title dynamically set
-        noteObjectBtn.setTitle("Interaction\n123456", forState: UIControlState.Normal)
-        noteObjectBtn.titleLabel!.lineBreakMode = .ByWordWrapping
-        noteObjectBtn.titleLabel!.textAlignment = .Center
-        noteObjectBtn.addTarget(self, action: "noteObjectButtonAction:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        self.view.addSubview(noteObjectBtn)
-    }
-    
-    func noteObjectButtonAction(sender: UIButton!) {
-        // TODO: Segue to Details view
-        print("Button tapped")
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: Collection View
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.notes.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
+        
+        cell.imageView?.image = self.noteBackgroundImage
+        cell.noteTitle?.text = self.notes[indexPath.row]
+        
+        return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.performSegueWithIdentifier("showNoteDetails", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showNoteDetails" {
+            // TODO: Send over note identifier so details can populate
+        }
+        
+    }
+    
 }
 

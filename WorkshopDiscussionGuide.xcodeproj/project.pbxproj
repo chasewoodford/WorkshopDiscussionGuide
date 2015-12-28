@@ -10,6 +10,7 @@
 		FD115FB61C0D3D6900A6312D /* NoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD115FB51C0D3D6900A6312D /* NoteManager.swift */; };
 		FD26B2141BFAA46500C9B23E /* OptionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD26B2131BFAA46500C9B23E /* OptionsTableViewController.swift */; };
 		FD27CABD1C110ADD00590295 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FD27CABB1C110ADD00590295 /* Model.xcdatamodeld */; };
+		FD3BC5BD1C317BC90002CCAC /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3BC5BC1C317BC90002CCAC /* CollectionViewCell.swift */; };
 		FDA21AA41C28BBFA002E6FC4 /* OptionsTableDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA21AA31C28BBFA002E6FC4 /* OptionsTableDetailViewController.swift */; };
 		FDC5A23A1C0A920500A6F68B /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDC5A2391C0A920500A6F68B /* DetailsViewController.swift */; };
 		FDDE01B51C2989070082C2A2 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDE01B41C2989070082C2A2 /* Option.swift */; };
@@ -35,6 +36,7 @@
 		FD115FB51C0D3D6900A6312D /* NoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteManager.swift; sourceTree = "<group>"; };
 		FD26B2131BFAA46500C9B23E /* OptionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OptionsTableViewController.swift; path = ../OptionsTableViewController.swift; sourceTree = "<group>"; };
 		FD27CABC1C110ADD00590295 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		FD3BC5BC1C317BC90002CCAC /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		FDA21AA31C28BBFA002E6FC4 /* OptionsTableDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsTableDetailViewController.swift; sourceTree = "<group>"; };
 		FDC5A2391C0A920500A6F68B /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailsViewController.swift; path = ../DetailsViewController.swift; sourceTree = "<group>"; };
 		FDDE01B41C2989070082C2A2 /* Option.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				FDE5A96E1BF81B63001A39B8 /* Images.xcassets */,
 				FDE5A96B1BF81B63001A39B8 /* Main.storyboard */,
 				FDE5A9701BF81B63001A39B8 /* LaunchScreen.xib */,
+				FD3BC5BC1C317BC90002CCAC /* CollectionViewCell.swift */,
 				FDE5A9671BF81B63001A39B8 /* AppDelegate.swift */,
 				FD27CABB1C110ADD00590295 /* Model.xcdatamodeld */,
 				FDE5A9691BF81B63001A39B8 /* ViewController.swift */,
@@ -233,6 +236,7 @@
 			files = (
 				FD115FB61C0D3D6900A6312D /* NoteManager.swift in Sources */,
 				FDE5A96A1BF81B63001A39B8 /* ViewController.swift in Sources */,
+				FD3BC5BD1C317BC90002CCAC /* CollectionViewCell.swift in Sources */,
 				FD27CABD1C110ADD00590295 /* Model.xcdatamodeld in Sources */,
 				FDE5A9681BF81B63001A39B8 /* AppDelegate.swift in Sources */,
 				FDDE01B51C2989070082C2A2 /* Option.swift in Sources */,
