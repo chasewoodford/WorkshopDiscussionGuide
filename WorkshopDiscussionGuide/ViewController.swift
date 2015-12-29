@@ -1,8 +1,6 @@
 //
 //  ViewController.swift
 //  WorkshopDiscussionGuide
-//
-//  Created by Chase Woodford on 11/14/15.
 //  Copyright (c) 2015 Chase Woodford. All rights reserved.
 //
 
@@ -12,11 +10,8 @@ import CoreData
 class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let year = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)!.component(NSCalendarUnit.Year, fromDate: NSDate())
-    // TODO: Make the notes load from core data
-    let notes = ["Interaction\n111111", "Interaction\n222222", "Interaction\n333333", "Interaction\n444444", "Interaction\n555555", "Interaction\n666666"]
-    let noteBackgroundImage = UIImage(named: "noteBackground")
     
-//    var detailViewController: DetailsViewController? = nil
+
     var resultsController = NoteManager.sharedInstance.fetchedResultsController
     
     @IBOutlet weak var textMainTitle: UITextField!
@@ -42,6 +37,10 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
         // Dispose of any resources that can be recreated.
     }
     
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.collectionView.reloadData()
+    }
+    
     // On end of editing of Main Title
     @IBAction func changeTextMainTitle(sender: UITextField) {
         self.textMainTitle.resignFirstResponder()
@@ -61,16 +60,23 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
     // MARK: Collection View
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.notes.count
+        let notesCount = resultsController.sections![section]
+        return notesCount.numberOfObjects
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
+        let noteBackgroundImage = UIImage(named: "noteBackground")
         
-        cell.imageView?.image = self.noteBackgroundImage
-        cell.noteTitle?.text = self.notes[indexPath.row]
-        
+        cell.imageView?.image = noteBackgroundImage
+        self.configureCell(cell, atIndexPath: indexPath)
         return cell
+    }
+    
+    func configureCell(cell: CollectionViewCell, atIndexPath indexPath: NSIndexPath) {
+        let object = resultsController.objectAtIndexPath(indexPath)
+        let interactionID = object.valueForKey("interactionID")!.description
+        cell.noteTitle!.text = "Interaction\n" + interactionID
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -81,8 +87,11 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showNoteDetails" {
-            let indexPath = collectionView?.indexPathsForSelectedItems()?.first
-            print(indexPath!.row)
+            if let indexPath = collectionView?.indexPathsForSelectedItems()?.first {
+                let object = resultsController.objectAtIndexPath(indexPath)
+                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailsViewController
+                controller.detailItem = object
+            }
         }
     }
     

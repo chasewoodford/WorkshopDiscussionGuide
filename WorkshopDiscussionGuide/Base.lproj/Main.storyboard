@@ -43,17 +43,6 @@
                                     <segue destination="69L-Eu-LWh" kind="presentation" modalPresentationStyle="formSheet" id="hVT-uE-vfM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zY8-VG-2pO">
-                                <rect key="frame" x="20" y="195" width="152" height="152"/>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="rN5-YO-ZkJ"/>
-                                </constraints>
-                                <state key="normal" title="Add New"/>
-                                <connections>
-                                    <segue destination="sUD-k8-QAw" kind="presentation" identifier="showNoteDetails" modalTransitionStyle="flipHorizontal" id="Vtq-hz-XVz"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="Understanding the In-Office Discussion" placeholder="Understanding the In-Office Discussion" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GM9-qI-eCh">
                                 <rect key="frame" x="20" y="70" width="744" height="48"/>
                                 <constraints>
@@ -118,6 +107,17 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="axY-70-GIY"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zY8-VG-2pO">
+                                <rect key="frame" x="20" y="195" width="152" height="152"/>
+                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="152" id="rN5-YO-ZkJ"/>
+                                </constraints>
+                                <state key="normal" title="Add New"/>
+                                <connections>
+                                    <segue destination="sUD-k8-QAw" kind="presentation" identifier="showNoteDetails" modalTransitionStyle="flipHorizontal" id="Vtq-hz-XVz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.058823529411764705" green="0.46666666666666667" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>

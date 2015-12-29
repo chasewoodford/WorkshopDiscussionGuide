@@ -1,8 +1,6 @@
 //
 //  AppDelegate.swift
 //  WorkshopDiscussionGuide
-//
-//  Created by Chase Woodford on 11/14/15.
 //  Copyright (c) 2015 Chase Woodford. All rights reserved.
 //
 

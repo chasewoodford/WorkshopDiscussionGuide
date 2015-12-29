@@ -1,8 +1,6 @@
 //
 //  NoteManager.swift
 //  WorkshopDiscussionGuide
-//
-//  Created by Chase Woodford on 11/30/15.
 //  Copyright © 2015 Chase Woodford. All rights reserved.
 //
 
@@ -130,7 +128,9 @@ class NoteManager {
         // Save the context.
         do {
             try context.save()
+            // For debugging
             print("Save successful")
+            print(newManagedObject)
         } catch {
             // Replace this implementation with code to handle the error appropriately.
             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.

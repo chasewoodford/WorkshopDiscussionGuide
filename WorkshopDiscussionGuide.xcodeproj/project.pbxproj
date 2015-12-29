@@ -97,11 +97,11 @@
 				FDE5A9701BF81B63001A39B8 /* LaunchScreen.xib */,
 				FD3BC5BC1C317BC90002CCAC /* CollectionViewCell.swift */,
 				FDE5A9671BF81B63001A39B8 /* AppDelegate.swift */,
+				FD115FB51C0D3D6900A6312D /* NoteManager.swift */,
 				FD27CABB1C110ADD00590295 /* Model.xcdatamodeld */,
 				FDE5A9691BF81B63001A39B8 /* ViewController.swift */,
 				FDC5A2391C0A920500A6F68B /* DetailsViewController.swift */,
 				FD26B2131BFAA46500C9B23E /* OptionsTableViewController.swift */,
-				FD115FB51C0D3D6900A6312D /* NoteManager.swift */,
 				FDA21AA31C28BBFA002E6FC4 /* OptionsTableDetailViewController.swift */,
 				FDDE01B41C2989070082C2A2 /* Option.swift */,
 			);

@@ -1,8 +1,6 @@
 //
 //  OptionsTableViewController.swift
 //  WorkshopDiscussionGuide
-//
-//  Created by Chase Woodford on 11/16/15.
 //  Copyright (c) 2015 Chase Woodford. All rights reserved.
 //
 
@@ -55,10 +53,8 @@ class OptionsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("optionCell", forIndexPath: indexPath) as UITableViewCell
-        
         let currentOption = options[indexPath.row]
         
-        // Set cell label
         cell.textLabel?.text = currentOption.name
         
         // Customizations for each cell
@@ -80,7 +76,7 @@ class OptionsTableViewController: UITableViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    // MARK: Navigation
+    // MARK: Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let optionDetailScene = segue.destinationViewController as! OptionsTableDetailViewController

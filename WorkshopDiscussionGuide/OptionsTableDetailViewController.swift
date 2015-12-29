@@ -1,8 +1,6 @@
 //
 //  OptionsTableDetailViewController.swift
 //  WorkshopDiscussionGuide
-//
-//  Created by Chase Woodford on 12/21/15.
 //  Copyright © 2015 Chase Woodford. All rights reserved.
 //
 
