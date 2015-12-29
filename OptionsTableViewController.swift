@@ -61,16 +61,17 @@ class OptionsTableViewController: UITableViewController {
         // Set cell label
         cell.textLabel?.text = currentOption.name
         
-//        // Customizations for each cell
-//        switch indexPath.row {
-//            case 0:
-//                // cell.imageView?.image =
-//            case 1:
-//                // cell.imageView?.image =
-//            case 2:
-//                // cell.imageView?.image =
-//            default:
-//        }
+        // Customizations for each cell
+        switch indexPath.row {
+            case 0:
+                cell.imageView?.image = UIImage(named: "share")
+            case 1:
+                cell.imageView?.image = UIImage(named: "about")
+            case 2:
+                cell.imageView?.image = UIImage(named: "help")
+            default:
+                break
+        }
         
         return cell
     }

@@ -16,7 +16,7 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
     let notes = ["Interaction\n111111", "Interaction\n222222", "Interaction\n333333", "Interaction\n444444", "Interaction\n555555", "Interaction\n666666"]
     let noteBackgroundImage = UIImage(named: "noteBackground")
     
-    var detailViewController: DetailsViewController? = nil
+//    var detailViewController: DetailsViewController? = nil
     var resultsController = NoteManager.sharedInstance.fetchedResultsController
     
     @IBOutlet weak var textMainTitle: UITextField!
@@ -25,13 +25,21 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
         // Show disclaimer immediately after launching app
         let myAlert = UIAlertView(title: "Disclaimer", message: "Verilogue, Inc. © \(year)\n\rThis app is in beta. Verilogue makes no guarantees on the performance of this app. Use at your own risk.", delegate: nil, cancelButtonTitle: "Agree")
         myAlert .show()
-        
+        resultsController.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.collectionView.reloadData()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     // On end of editing of Main Title
@@ -48,11 +56,6 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return false
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: Collection View
@@ -74,11 +77,13 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
         self.performSegueWithIdentifier("showNoteDetails", sender: self)
     }
     
+    // MARK: - Segues
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showNoteDetails" {
-            // TODO: Send over note identifier so details can populate
+            let indexPath = collectionView?.indexPathsForSelectedItems()?.first
+            print(indexPath!.row)
         }
-        
     }
     
 }

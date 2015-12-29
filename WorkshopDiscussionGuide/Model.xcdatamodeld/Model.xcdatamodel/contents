@@ -5,12 +5,12 @@
         <attribute name="createdDatetime" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="deleted" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="implications" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="interactionID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="interactionID" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="keyTakeaways" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="orderNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="updatedDatetime" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Note" positionX="-306" positionY="-171" width="171" height="165"/>
+        <element name="Note" positionX="-306" positionY="-171" width="171" height="163"/>
     </elements>
 </model>

@@ -77,19 +77,19 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
                 interactionID.text = ""
             }
             
-            if let createdDatetime = self.createdDatetimeLabel {
+            if let _ = self.createdDatetimeLabel {
                 createdDatetimeLabel.text = "Created on " + NoteManager.sharedInstance.formatDateToString(NSDate())
             }
             
-            if let conversationDynamics = self.conversationDynamicsTextView {
+            if let _ = self.conversationDynamicsTextView {
                 conversationDynamicsTextView.text = ""
             }
             
-            if let keyTakeaways = self.keyTakeawaysTextView {
+            if let _ = self.keyTakeawaysTextView {
                 keyTakeawaysTextView.text = ""
             }
             
-            if let implications = self.implicationsTextView {
+            if let _ = self.implicationsTextView {
                 implicationsTextView.text = ""
             }
         }
