@@ -113,7 +113,7 @@ class NoteManager {
     
     var _fetchedResultsController: NSFetchedResultsController? = nil
     
-    func insertNewObject(interactionID:Int, conversationDynamics:String, keyTakeaways:String, implications:String) {
+    func insertNewObject(interactionID: String, conversationDynamics: String, keyTakeaways: String, implications: String) {
         let context = self.fetchedResultsController.managedObjectContext
         let entity = self.fetchedResultsController.fetchRequest.entity!
         let newManagedObject = NSEntityDescription.insertNewObjectForEntityForName(entity.name!, inManagedObjectContext: context)

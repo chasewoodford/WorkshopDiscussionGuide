@@ -37,6 +37,7 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializeTextFields()
         self.configureView()
     }
     
@@ -70,31 +71,14 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             }
             
         } else {
-            // Display new note
-            if let interactionID = self.interactionID {
-                interactionID.text = ""
-            }
-            
             if let _ = self.createdDatetimeLabel {
                 createdDatetimeLabel.text = "Created on " + NoteManager.sharedInstance.formatDateToString(NSDate())
-            }
-            
-            if let _ = self.conversationDynamicsTextView {
-                conversationDynamicsTextView.text = ""
-            }
-            
-            if let _ = self.keyTakeawaysTextView {
-                keyTakeawaysTextView.text = ""
-            }
-            
-            if let _ = self.implicationsTextView {
-                implicationsTextView.text = ""
             }
         }
     }
     
     func saveNote(){
-        let interactionID:Int? = Int(self.interactionID.text!)
+        let interactionID = self.interactionID.text
         let conversationDynamics = self.conversationDynamicsTextView.text
         let keyTakeaways = self.keyTakeawaysTextView.text
         let implications = self.implicationsTextView.text
@@ -106,10 +90,10 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
     
     func updateNote(){
         if let detail = self.detailItem {
-            detail.setValue(self.interactionID!.text, forKey: "interactionID")
-            detail.setValue(self.conversationDynamicsTextView!.text, forKey: "conversationDynamics")
-            detail.setValue(self.keyTakeawaysTextView, forKey: "keyTakeaways")
-            detail.setValue(self.implicationsTextView, forKey: "implications")
+            detail.setValue(self.interactionID.text, forKey: "interactionID")
+            detail.setValue(self.conversationDynamicsTextView.text, forKey: "conversationDynamics")
+            detail.setValue(self.keyTakeawaysTextView.text, forKey: "keyTakeaways")
+            detail.setValue(self.implicationsTextView.text, forKey: "implications")
             
             do {
                 try NoteManager.sharedInstance.managedObjectContext.save()
@@ -127,11 +111,37 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         self.view .endEditing(true)
     }
     
+    // Set up keyboards
+    func initializeTextFields() {
+        interactionID.delegate = self
+        interactionID.keyboardType = UIKeyboardType.NumberPad
+        conversationDynamicsTextView.delegate = self
+        conversationDynamicsTextView.keyboardType = UIKeyboardType.ASCIICapable
+        keyTakeawaysTextView.delegate = self
+        keyTakeawaysTextView.keyboardType = UIKeyboardType.ASCIICapable
+        implicationsTextView.delegate = self
+        implicationsTextView.keyboardType = UIKeyboardType.ASCIICapable
+    }
+    
     // Enable save button after editing Interaction ID
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         self.saveButton.tintColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         self.saveButton.enabled = true
-        return true
+        
+        // Validate changes against constraints
+        let currentText = textField.text ?? ""
+        let prospectiveText = (currentText as NSString).stringByReplacingCharactersInRange(range, withString: string)
+        
+        switch textField {
+            // Allow only 6 digits
+            case interactionID:
+                return prospectiveText.containsOnlyCharactersIn("0123456789") &&
+                    prospectiveText.characters.count <= 6
+            
+            // Do not put constraints on any other text field
+            default:
+                return true
+        }
     }
     
     // Enable save button after editing text view input

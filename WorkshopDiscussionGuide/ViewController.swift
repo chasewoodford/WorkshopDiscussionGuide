@@ -10,7 +10,6 @@ import CoreData
 class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
     
     let year = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)!.component(NSCalendarUnit.Year, fromDate: NSDate())
-    
 
     var resultsController = NoteManager.sharedInstance.fetchedResultsController
     
