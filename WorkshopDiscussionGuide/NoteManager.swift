@@ -129,7 +129,6 @@ class NoteManager {
         do {
             try context.save()
             // For debugging
-            print("Save successful")
             print(newManagedObject)
         } catch {
             // Replace this implementation with code to handle the error appropriately.

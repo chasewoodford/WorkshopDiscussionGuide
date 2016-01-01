@@ -84,6 +84,7 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         let implications = self.implicationsTextView.text
 
         NoteManager.sharedInstance.insertNewObject(interactionID!, conversationDynamics: conversationDynamics, keyTakeaways: keyTakeaways, implications: implications)
+        print("Save successful")
         // Dimiss view on save
         self.dismissViewControllerAnimated(true, completion: {});
     }
@@ -97,6 +98,7 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             
             do {
                 try NoteManager.sharedInstance.managedObjectContext.save()
+                print("Update successful")
                 // Dismiss view on update
                 self.dismissViewControllerAnimated(true, completion: {});
             } catch {

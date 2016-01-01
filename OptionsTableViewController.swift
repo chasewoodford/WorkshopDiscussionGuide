@@ -16,21 +16,21 @@ class OptionsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var optionItem = Option(
-            name: "Share",
-            description: "This should be replaced with options for saving and sharing notes. This may need a scene of its own."
-        )
-        options.append(optionItem)
-        
-        optionItem = Option(
+        var optionItem = Option (
             name: "About",
             description: "Verilogue's Workshop Discussion Guide app is a digital note-taking companion for live, on-site listening workshops.\n\rFor convenience, and to reduce the amount of printed materials needed to create an engaging dialogue experience for brand and agency teams, Verilogue makes available its digital Workshop Discussion Guide free of charge.\n\rAs with a printed Workshop Discussion Guide worksheet, this app allows users to record notes for each interaction explored during a Listening Workshop. Unlike a printed document, however, this app allows users to easily save and share digital copies of notes. Additionally, user notes are not limited in size by the available physical space of a piece of paper.\n\rVerilogue, Inc. © \(year)\nwww.verilogue.com\nVersion: \(versionNumber)"
         )
         options.append(optionItem)
         
-        optionItem = Option(
+        optionItem = Option (
             name: "Help",
             description: "This should be like a bulleted list of FAQs."
+        )
+        options.append(optionItem)
+        
+        optionItem = Option (
+            name: "Share",
+            description: "Use the options below to save and share your notes outside of the Verilogue Notes app."
         )
         options.append(optionItem)
         
@@ -60,11 +60,15 @@ class OptionsTableViewController: UITableViewController {
         // Customizations for each cell
         switch indexPath.row {
             case 0:
-                cell.imageView?.image = UIImage(named: "share")
-            case 1:
                 cell.imageView?.image = UIImage(named: "about")
-            case 2:
+                cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            case 1:
                 cell.imageView?.image = UIImage(named: "help")
+                cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            case 2:
+                cell.imageView?.image = UIImage(named: "share")
+                cell.accessoryType = UITableViewCellAccessoryType.None
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
             default:
                 break
         }
@@ -78,9 +82,20 @@ class OptionsTableViewController: UITableViewController {
     
     // MARK: Segues
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        let indexPath = self.tableView.indexPathForSelectedRow
+        if indexPath!.row == 2 {
+            let activityItem = "This is the text to share"
+            let activityVC: UIActivityViewController = UIActivityViewController(activityItems: [activityItem], applicationActivities: nil)
+            self.presentViewController(activityVC, animated: true, completion: nil)
+            return false
+        } else {
+            return true
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let optionDetailScene = segue.destinationViewController as! OptionsTableDetailViewController
-        
         if let indexPath = self.tableView.indexPathForSelectedRow {
             let selectedOption = options[indexPath.row]
             optionDetailScene.optionItem = selectedOption

@@ -12,6 +12,14 @@ class OptionsTableDetailViewController: UIViewController {
     
     @IBOutlet weak var optionItemDescription: UITextView!
     
+    override func viewWillAppear(animated: Bool) {
+        if optionItem!.name == "Share" {
+            let activityItem = "This is the text to share"
+            let activityVC: UIActivityViewController = UIActivityViewController(activityItems: [activityItem], applicationActivities: nil)
+            self.presentViewController(activityVC, animated: true, completion: nil)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         optionItemDescription.text = optionItem!.description
