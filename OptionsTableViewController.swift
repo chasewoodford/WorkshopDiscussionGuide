@@ -56,6 +56,7 @@ class OptionsTableViewController: UITableViewController {
         let currentOption = options[indexPath.row]
         
         cell.textLabel?.text = currentOption.name
+        tableView.separatorStyle = .None
         
         // Customizations for each cell
         switch indexPath.row {
@@ -70,7 +71,8 @@ class OptionsTableViewController: UITableViewController {
                 cell.accessoryType = UITableViewCellAccessoryType.None
                 cell.selectionStyle = UITableViewCellSelectionStyle.None
             default:
-                break
+                cell.accessoryType = UITableViewCellAccessoryType.None
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
         }
         
         return cell

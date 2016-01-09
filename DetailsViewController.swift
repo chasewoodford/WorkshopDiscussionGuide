@@ -37,8 +37,10 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupKeyboardNotifications()
         initializeTextFields()
         self.configureView()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -46,9 +48,43 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
         // Dispose of any resources that can be recreated.
     }
     
+    func setupKeyboardNotifications() {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWasShown:"), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillBeHidden:"), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWasShown(aNotification: NSNotification) {
+        // When keyboard is shown, covering text at cursor, scroll text into view
+        let info = aNotification.userInfo
+        let infoNSValue = info![UIKeyboardFrameBeginUserInfoKey] as! NSValue
+        let kbSize = infoNSValue.CGRectValue().size
+        let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
+        
+        conversationDynamicsTextView.contentInset = contentInsets
+        conversationDynamicsTextView.scrollIndicatorInsets = contentInsets
+        keyTakeawaysTextView.contentInset = contentInsets
+        keyTakeawaysTextView.scrollIndicatorInsets = contentInsets
+        implicationsTextView.contentInset = contentInsets
+        implicationsTextView.scrollIndicatorInsets = contentInsets
+    }
+    
+    func keyboardWillBeHidden(aNotification: NSNotification) {
+        // Reset text view when keyboard goes away
+        let contentInsets = UIEdgeInsetsZero
+        
+        conversationDynamicsTextView.contentInset = contentInsets
+        conversationDynamicsTextView.scrollIndicatorInsets = contentInsets
+        keyTakeawaysTextView.contentInset = contentInsets
+        keyTakeawaysTextView.scrollIndicatorInsets = contentInsets
+        implicationsTextView.contentInset = contentInsets
+        implicationsTextView.scrollIndicatorInsets = contentInsets
+    }
+    
     func configureView() {
         if let detail = self.detailItem {
             // Display existing note
+            self.title = "Notes for Interaction " + (detail.valueForKey("interactionID")?.description)!
+            
             if let interactionID = self.interactionID {
                 interactionID.text = detail.valueForKey("interactionID")!.description
             }
@@ -72,6 +108,7 @@ class DetailsViewController: UIViewController, UITextFieldDelegate, UITextViewDe
             
         } else {
             if let _ = self.createdDatetimeLabel {
+                self.title = "New Note"
                 createdDatetimeLabel.text = "Created on " + NoteManager.sharedInstance.formatDateToString(NSDate())
             }
         }
