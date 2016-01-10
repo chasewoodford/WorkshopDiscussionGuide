@@ -36,9 +36,8 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="111" id="kRl-Fj-UtK"/>
                                 </constraints>
-                                <state key="normal" image="options">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" image="options"/>
                                 <connections>
                                     <segue destination="69L-Eu-LWh" kind="presentation" modalPresentationStyle="formSheet" id="hVT-uE-vfM"/>
                                 </connections>
@@ -73,7 +72,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noteBackground" translatesAutoresizingMaskIntoConstraints="NO" id="7WF-7s-GPM">
+                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noteBackground" translatesAutoresizingMaskIntoConstraints="NO" id="7WF-7s-GPM">
                                                     <rect key="frame" x="0.0" y="0.0" width="152" height="152"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" button="YES" image="YES"/>
@@ -82,7 +81,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GN7-io-heo">
                                                     <rect key="frame" x="8" y="51" width="136" height="50"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.058823529409999999" green="0.46666666670000001" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -109,13 +108,18 @@
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zY8-VG-2pO">
                                 <rect key="frame" x="20" y="195" width="152" height="152"/>
-                                <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="152" id="rN5-YO-ZkJ"/>
                                 </constraints>
-                                <state key="normal" title="Add New"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Add New" backgroundImage="noteBackground">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" backgroundImage="noteBackground"/>
+                                <state key="highlighted" backgroundImage="noteBackground"/>
+                                <state key="focused" backgroundImage="noteBackground"/>
                                 <connections>
-                                    <segue destination="sUD-k8-QAw" kind="presentation" identifier="showNoteDetails" modalTransitionStyle="flipHorizontal" id="Vtq-hz-XVz"/>
+                                    <segue destination="sUD-k8-QAw" kind="presentation" identifier="showNoteDetails" modalTransitionStyle="partialCurl" id="Vtq-hz-XVz"/>
                                 </connections>
                             </button>
                         </subviews>
