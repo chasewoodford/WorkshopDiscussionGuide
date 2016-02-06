@@ -55,9 +55,25 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ZHd-Mh-RT9"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zY8-VG-2pO">
+                                <rect key="frame" x="20" y="195" width="152" height="152"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="152" id="rN5-YO-ZkJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Add New" backgroundImage="noteBackground">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected" backgroundImage="noteBackground"/>
+                                <state key="highlighted" backgroundImage="noteBackground"/>
+                                <state key="focused" backgroundImage="noteBackground"/>
+                                <connections>
+                                    <segue destination="sUD-k8-QAw" kind="presentation" identifier="showNoteDetails" modalTransitionStyle="flipHorizontal" id="Vtq-hz-XVz"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="J2A-Za-daD">
                                 <rect key="frame" x="187" y="195" width="817" height="553"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="l0I-yK-lO7">
                                     <size key="itemSize" width="152" height="152"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -106,22 +122,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="axY-70-GIY"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zY8-VG-2pO">
-                                <rect key="frame" x="20" y="195" width="152" height="152"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="rN5-YO-ZkJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="Add New" backgroundImage="noteBackground">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <state key="selected" backgroundImage="noteBackground"/>
-                                <state key="highlighted" backgroundImage="noteBackground"/>
-                                <state key="focused" backgroundImage="noteBackground"/>
-                                <connections>
-                                    <segue destination="sUD-k8-QAw" kind="presentation" identifier="showNoteDetails" modalTransitionStyle="partialCurl" id="Vtq-hz-XVz"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.058823529411764705" green="0.46666666666666667" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>

@@ -7,7 +7,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
+class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate {
     
     let year = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)!.component(NSCalendarUnit.Year, fromDate: NSDate())
 
@@ -20,10 +20,18 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        resultsController.delegate = self
+        
         // Show disclaimer immediately after launching app
         let myAlert = UIAlertView(title: "Disclaimer", message: "Verilogue, Inc. © \(year)\n\rThis app is in beta. Verilogue makes no guarantees on the performance of this app. Use at your own risk.", delegate: nil, cancelButtonTitle: "Agree")
         myAlert .show()
-        resultsController.delegate = self
+        
+        // Set gesture recognizer for collection view cell deletion
+        let lpgr = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        lpgr.minimumPressDuration = 0.3
+        lpgr.delaysTouchesBegan = true
+        lpgr.delegate = self
+        self.collectionView.addGestureRecognizer(lpgr)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -82,7 +90,25 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
         self.performSegueWithIdentifier("showNoteDetails", sender: self)
     }
     
-    // MARK: - Segues
+    // MARK: Long gesture handling
+    
+    func handleLongPress(gestureReconizer: UILongPressGestureRecognizer) {
+        if gestureReconizer.state != UIGestureRecognizerState.Began {
+            return
+        }
+        
+        let p = gestureReconizer.locationInView(self.collectionView)
+        let indexPath = self.collectionView.indexPathForItemAtPoint(p)
+        
+        if let index = indexPath {
+            var cell = self.collectionView.cellForItemAtIndexPath(index)
+            print(index.row)
+        } else {
+            print("Could not find index path")
+        }
+    }
+    
+    // MARK: Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showNoteDetails" {
