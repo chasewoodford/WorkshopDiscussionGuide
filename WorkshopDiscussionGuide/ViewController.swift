@@ -105,7 +105,6 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
         let indexPath = self.collectionView.indexPathForItemAtPoint(p)
         
         if let index = indexPath {
-            var cell = self.collectionView.cellForItemAtIndexPath(index)
             let object = resultsController.objectAtIndexPath(indexPath!)
             let interactionID = object.valueForKey("interactionID")!.description
             let alertController = UIAlertController (
@@ -114,9 +113,8 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
                 preferredStyle: UIAlertControllerStyle.Alert
             )
             
-            alertController.addAction(UIAlertAction(title: "Delete", style: .Default, handler: { (action: UIAlertAction!) in print("Handle Ok logic for \(index.row) here") }))
-            
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in print("Handle Cancel logic for \(index.row) here") }))
+            alertController.addAction(UIAlertAction(title: "Delete", style: .Default, handler: { (action: UIAlertAction!) in print("Handle delete logic for object \(index.row) here") }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in print("Cancel deletion of Interaction \(interactionID)") }))
             
             self.presentViewController(alertController, animated: true, completion: nil)
             
