@@ -22,6 +22,10 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
         super.viewDidLoad()
         resultsController.delegate = self
         
+        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        backgroundImage.image = UIImage(named: "")
+        self.view.insertSubview(backgroundImage, atIndex: 0)
+        
         // Show disclaimer immediately after launching app
         let myAlert = UIAlertView(title: "Disclaimer", message: "Verilogue, Inc. © \(year)\n\rThis app is in beta. Verilogue makes no guarantees on the performance of this app. Use at your own risk.", delegate: nil, cancelButtonTitle: "Agree")
         myAlert .show()
