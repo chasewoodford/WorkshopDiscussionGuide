@@ -106,7 +106,20 @@ class ViewController: UIViewController, UITextFieldDelegate, NSFetchedResultsCon
         
         if let index = indexPath {
             var cell = self.collectionView.cellForItemAtIndexPath(index)
-            print(index.row)
+            let object = resultsController.objectAtIndexPath(indexPath!)
+            let interactionID = object.valueForKey("interactionID")!.description
+            let alertController = UIAlertController (
+                title: "Would you like to delete note for Interaction \(interactionID)?",
+                message: "Click Delete to delete your note.\nClick Cancel to keep your note.",
+                preferredStyle: UIAlertControllerStyle.Alert
+            )
+            
+            alertController.addAction(UIAlertAction(title: "Delete", style: .Default, handler: { (action: UIAlertAction!) in print("Handle Ok logic for \(index.row) here") }))
+            
+            alertController.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: { (action: UIAlertAction!) in print("Handle Cancel logic for \(index.row) here") }))
+            
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
         } else {
             print("Could not find index path")
         }
