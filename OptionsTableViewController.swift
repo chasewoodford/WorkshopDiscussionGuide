@@ -7,31 +7,19 @@
 import UIKit
 
 class OptionsTableViewController: UITableViewController {
-    
-    let versionNumber = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-    let year = NSCalendar.init(calendarIdentifier: NSCalendarIdentifierGregorian)!.component(NSCalendarUnit.Year, fromDate: NSDate())
 
     var options = [Option]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var optionItem = Option (
-            name: "About",
-            description: "Verilogue's Workshop Discussion Guide app is a digital note-taking companion for live, on-site listening workshops.\n\rFor convenience, and to reduce the amount of printed materials needed to create an engaging dialogue experience for brand and agency teams, Verilogue makes available its digital Workshop Discussion Guide free of charge.\n\rAs with a printed Workshop Discussion Guide worksheet, this app allows users to record notes for each interaction explored during a Listening Workshop. Unlike a printed document, however, this app allows users to easily save and share digital copies of notes. Additionally, user notes are not limited in size by the available physical space of a piece of paper.\n\rVerilogue, Inc. © \(year)\nwww.verilogue.com\nVersion: \(versionNumber)"
-        )
+        var optionItem = Option (name: "About", description: "")
         options.append(optionItem)
         
-        optionItem = Option (
-            name: "Help",
-            description: "This should be like a bulleted list of FAQs."
-        )
+        optionItem = Option (name: "Help", description: "")
         options.append(optionItem)
         
-        optionItem = Option (
-            name: "Share",
-            description: "Use the options below to save and share your notes outside of the Verilogue Notes app."
-        )
+        optionItem = Option (name: "Share", description: "")
         options.append(optionItem)
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "dismiss")
