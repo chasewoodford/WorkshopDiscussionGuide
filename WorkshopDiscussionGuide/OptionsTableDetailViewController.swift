@@ -28,17 +28,40 @@ class OptionsTableDetailViewController: UIViewController {
             optionItemDescription.text = description
             
         } else if optionItem!.name == "Help" {
-            
-            let faqs = [
-                "How do I use this app?" : "Close your eyes and move your fingers.",
-                "What did I pay for this app?" : "Hopefully nothing!"
+
+            let faqs: [Int: [String: String]] = [
+                1: [
+                    "question"  :   "How do I use this app?",
+                    "answer"    :   "Close your eyes and move your fingers."
+                ],
+                2: [
+                    "question"  :   "How much does this app cost?",
+                    "answer"    :   "Absolutely nothing!"
+                ],
+                3: [
+                    "question"  :   "What do I do with this app?",
+                    "answer"    :   "Take notes."
+                ]
             ]
+
+            print("The dictionary contains \(faqs.count) sets.\n")
             
-            // retrieve the key
-            let question = faqs.keys.first!
-            let answer = faqs.values.first!
+            var text: String = ""
             
-            optionItemDescription.text = question + "\n" + answer + "\n"
+            for set in faqs.values {
+                let question = "\(set["question"]!)\n"
+                let answer = "\(set["answer"]!)\n\n"
+                text += question + answer
+            }
+            
+            let faqText: NSString = text
+            let boldString: NSMutableAttributedString = NSMutableAttributedString(string: faqText as String)
+            
+            boldString.addAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(15)], range: NSRange(location: 0, length: 28))
+            boldString.addAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(15)], range: NSRange(location: 40, length: 29))
+            boldString.addAttributes([NSFontAttributeName: UIFont.boldSystemFontOfSize(15)], range: NSRange(location: 90, length: 24))
+            
+            optionItemDescription.attributedText = boldString
             
         } else {
             optionItemDescription.text = optionItem!.description
